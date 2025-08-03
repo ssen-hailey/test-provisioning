@@ -9,37 +9,37 @@ locals {
   vpc_name         = replace("${var.product}${var.env_suffix}_${var.aws_region}", "-", "")
   shard_id         = var.shard_id
   eks_cluster_name = format("%s%s%s-%s", var.product, var.env_suffix, var.aws_short_region, random_string.suffix.result)
-  vpc_tags = {
-    "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared",
-    "Name" : "vpc-${local.vpc_name}"
-  }
-  public_subnets_tags = {
-    "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared"
-    "kubernetes.io/role/elb" : 1
-  }
-  private_subnets_tags = {
-    Network = "Private"
-    "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared"
-    "kubernetes.io/role/internal-elb" : 1
-  }
-  public_subnets_tags_flat = distinct(flatten([
-    for id in aws_subnet.public.*.id : [
-      for key, value in local.public_subnets_tags : {
-        id    = id
-        key   = key
-        value = value
-      }
-    ]
-  ]))
-  private_subnets_tags_flat = distinct(flatten([
-    for id in aws_subnet.private.*.id : [
-      for key, value in local.private_subnets_tags : {
-        id    = id
-        key   = key
-        value = value
-      }
-    ]
-  ]))
+  # vpc_tags = {
+  #   "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared",
+  #   "Name" : "vpc-${local.vpc_name}"
+  # }
+  # public_subnets_tags = {
+  #   "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared"
+  #   "kubernetes.io/role/elb" : 1
+  # }
+  # private_subnets_tags = {
+  #   Network = "Private"
+  #   "kubernetes.io/cluster/${local.eks_cluster_name}" : "shared"
+  #   "kubernetes.io/role/internal-elb" : 1
+  # }
+  # public_subnets_tags_flat = distinct(flatten([
+  #   for id in aws_subnet.public.*.id : [
+  #     for key, value in local.public_subnets_tags : {
+  #       id    = id
+  #       key   = key
+  #       value = value
+  #     }
+  #   ]
+  # ]))
+  # private_subnets_tags_flat = distinct(flatten([
+  #   for id in aws_subnet.private.*.id : [
+  #     for key, value in local.private_subnets_tags : {
+  #       id    = id
+  #       key   = key
+  #       value = value
+  #     }
+  #   ]
+  # ]))
 
   private_subnet_peerings = flatten([
     for pair in setproduct(aws_route_table.private.*.id, var.peering_requests) : {
