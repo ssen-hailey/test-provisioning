@@ -26,6 +26,20 @@ projects:
     apply_requirements: []
     workflow: id
 
+
+     - name: iam/seeun_id
+    dir: terraform/iam/seeun_id
+    workspace: default
+    terraform_version: 1.5.7
+    autoplan:
+      when_modified: [
+         "*.tf",
+         "terraform.tfvars"
+      ]
+      enabled: true
+    apply_requirements: []
+    workflow: id
+
 #### Workflows #####
 workflows:
   # id
@@ -44,5 +58,3 @@ workflows:
     apply:
       steps:
         - apply
-
-  
