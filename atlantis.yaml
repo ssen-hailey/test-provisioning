@@ -26,6 +26,7 @@ projects:
     apply_requirements: []
     workflow: id
 
+
      - name: iam/seeun_id
     dir: terraform/iam/seeun_id
     workspace: default
@@ -57,4 +58,3 @@ workflows:
     apply:
       steps:
         - apply
-
