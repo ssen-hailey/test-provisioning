@@ -1,6 +1,6 @@
-module "sops_zerone_id" {
+module "sops_seeun_id" {
   source = "../_modules/sops"
-  name   = "zerond-id"
+  name   = "seeun-id"
   allowed_arns_for_common = [
     "arn:aws:iam::${var.account_id.id}:root",
     "arn:aws:iam::${var.account_id.id}:role/atlantis-ecs_task_execution"
@@ -11,10 +11,10 @@ module "sops_zerone_id" {
   ]
 }
 
-output "sops_zerone_id_common_role_arn" {
-  value = module.sops_zerone_id.common_role_arn
+output "sops_seeun_id_common_role_arn" {
+  value = module.sops_seeun_id.common_role_arn
 }
 
-output "sops_zerone_id_secure_role_arn" {
-  value = module.sops_zerone_id.secure_role_arn
+output "sops_seeun_id_secure_role_arn" {
+  value = module.sops_seeun_id.secure_role_arn
 }
