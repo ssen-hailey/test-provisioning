@@ -27,7 +27,7 @@ projects:
     workflow: id
 
 
-     - name: iam/seeun_id
+  - name: iam/seeun_id
     dir: terraform/iam/seeun_id
     workspace: default
     terraform_version: 1.5.7
@@ -35,6 +35,18 @@ projects:
       when_modified: [
          "*.tf",
          "terraform.tfvars"
+      ]
+      enabled: true
+    apply_requirements: []
+    workflow: id
+
+  - name: kms/seeun-id/ap-northeast-2
+    dir: terraform/kms/seeun-id/ap-northeast-2
+    workspace: default
+    terraform_version: 1.7.0
+    autoplan:
+      when_modified: [
+         "*.tf"
       ]
       enabled: true
     apply_requirements: []
