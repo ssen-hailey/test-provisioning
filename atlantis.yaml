@@ -28,7 +28,7 @@ projects:
 
 
   - name: iam/seeun_id
-    dir: terraform/iam/seeun_id
+    dir: terraform/iam/seeun-id
     workspace: default
     terraform_version: 1.5.7
     autoplan:
@@ -69,6 +69,19 @@ projects:
     dir: terraform/platform/jenkins/seeun_id_apnortheast2
     workspace: default
     terraform_version: 1.13.0
+    autoplan:
+      when_modified: [
+         "*.tf",
+         "terraform.tfvars"
+      ]
+      enabled: true
+    apply_requirements: []
+    workflow: id
+
+  - name: codebuild/seeun-id_ap-northeast-2
+    dir: terraform/codebuild/seeun-id/seeun_id_apnortheast2
+    workspace: default
+    terraform_version: 1.7.0
     autoplan:
       when_modified: [
          "*.tf",
