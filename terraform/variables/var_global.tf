@@ -25,7 +25,7 @@ variable "account_id" {
 variable "remote_state" {
   default = {
     vpc = {
-      tmcd_apnortheast2 = {
+      sed_apnortheast2 = {
         bucket = "seeun-id-apnortheast2-tfstate"
         key    = "provisioning/terraform/vpc/tmcd_apnortheast2/terraform.tfstate"
         region = "ap-northeast-2"
@@ -68,7 +68,7 @@ variable "remote_state" {
 
     security_group = {
       seeun-id = {
-        tmcdapne2 = {
+        sedapne2 = {
           bucket = "seeun-id-apnortheast2-tfstate"
           key    = "provisioning/terraform/securitygroup/seeun-id/tmcd_apnortheast2/terraform.tfstate"
           region = "ap-northeast-2"
