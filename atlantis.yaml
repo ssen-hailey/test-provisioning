@@ -66,7 +66,7 @@ projects:
     workflow: id
 
   - name: jenkins/seeun-id_ap-northeast-2
-    dir: terraform/platform/jenkins/seeun-id_ap-northeast-2
+    dir: terraform/platform/jenkins/seeun_id_apnortheast2
     workspace: default
     terraform_version: 1.13.0
     autoplan:
