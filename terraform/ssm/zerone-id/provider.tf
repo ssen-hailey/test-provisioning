@@ -1,4 +1,4 @@
-provider "aws" {
+provider "aws" { test  
   region = var.aws_region
 
   assume_role {
