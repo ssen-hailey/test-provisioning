@@ -4,25 +4,25 @@ resource "aws_iam_policy" "app_universal" {
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
-    #   {
-    #     "Sid" : "AllowAnsibleArtifactAccess",
-    #     "Action" : "s3:GetObject",
-    #     "Resource" : [
-    #       "arn:aws:s3:::tmc-service-deployment/demoapp/*"
-    #     ],
-    #     "Effect" : "Allow"
-    #   },
-    #   {
-    #     "Sid" : "AllowArtifactsReadAccess",
-    #     "Action" : [
-    #       "s3:ListBucket"
-    #     ],
-    #     "Effect" : "Allow",
-    #     "Resource" : [
-    #       "arn:aws:s3:::tmc-service-deployment",
-    #       "arn:aws:s3:::tmc-service-deployment/*"
-    #     ]
-    #   },
+      {
+        "Sid" : "AllowAnsibleArtifactAccess",
+        "Action" : "s3:GetObject",
+        "Resource" : [
+          "arn:aws:s3:::seeun-service-deployment/demoapp/*"
+        ],
+        "Effect" : "Allow"
+      },
+      {
+        "Sid" : "AllowArtifactsReadAccess",
+        "Action" : [
+          "s3:ListBucket"
+        ],
+        "Effect" : "Allow",
+        "Resource" : [
+          "arn:aws:s3:::seeun-service-deployment",
+          "arn:aws:s3:::seeun-service-deployment/*"
+        ]
+      },
       {
         "Sid" : "AllowAnsibleCreateDescribeEc2TagsAccess",
         "Action" : [
